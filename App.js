@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
@@ -12,6 +12,12 @@ import {
 import Note from "./components/Note";
 
 export default function App() {
+  const [note, setNote] = useState();
+
+  const handleAddNote = () => {
+    console.log(note);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Your Notes</Text>
@@ -34,10 +40,13 @@ export default function App() {
         <TextInput
           style={styles.inputNote}
           placeholder={"Make a note"}
-        ></TextInput>
+          // value={note}
+          // When something is entered, set that text to the note 
+          onChangeText={(text) => setNote(text)}
+        />
 
         {/* Add note button */}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => handleAddNote()}>
           <View style={styles.addButtonWrapper}>
             <Text style={styles.addButtonText}>+</Text>
           </View>
@@ -80,6 +89,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
+    borderColor: "#C0C0C0",
+    borderWidth: 1,
   },
   // The add button
   addButtonWrapper: {
@@ -90,5 +101,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 45,
     alignItems: "center",
-  }
+    justifyContent: "center",
+    borderColor: "#C0C0C0",
+    borderWidth: 1,
+  },
+  addButtonText: {},
 });
