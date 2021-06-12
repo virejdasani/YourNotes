@@ -33,6 +33,15 @@ export default function App() {
     setNote(null);
   };
 
+  const handleDeleteNote = (index) => {
+    // Make a copy array of noteItems
+    let notesCopy = [...noteItems];
+    // Remove the element in the copy array at the index of 'index'
+    notesCopy.splice(index, 1);
+    // Set the modified array to the original array
+    setNoteItems(notesCopy);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Your Notes</Text>
@@ -42,7 +51,9 @@ export default function App() {
         {
           // This maps over all the noteItems and adds the Note from Note.js
           noteItems.map((element, index) => {
-            return <Note key={index} text={element} />;
+            return (
+              <Note key={index} text={element} onDelete={handleDeleteNote} />
+            );
           })
         }
       </View>

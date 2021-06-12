@@ -5,7 +5,7 @@ const Note = (props) => {
   return (
     <View style={styles.noteContainer}>
       <Text style={styles.noteText}>{props.text}</Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={props.onDelete}>
         <Text style={styles.deleteText}>Delete</Text>
       </TouchableOpacity>
     </View>
