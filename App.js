@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
@@ -12,10 +13,24 @@ import {
 import Note from "./components/Note";
 
 export default function App() {
+  // This is the note while it is being typed in
   const [note, setNote] = useState();
+  // This is the array that stores all the notes
+  const [noteItems, setNoteItems] = useState([]);
 
+  // This is executed when the add note button is pressed
   const handleAddNote = () => {
-    console.log(note);
+    // This makes the keyboard go away when note has been added
+    Keyboard.dismiss();
+
+    // console.log(note);
+
+    // This takes everything in the noteItems and puts it into an [array] and appends the value of the note to that array
+    // It works like: noteItems(array) += note(new note)
+    setNoteItems([...noteItems, note]);
+
+    // Clear the input field
+    setNote(null);
   };
 
   return (
@@ -24,9 +39,12 @@ export default function App() {
 
       {/* Notes Start */}
       <View style={styles.notesWrapper}>
-        <Note text="Note 1" />
-        <Note text="Note 2" />
-        <Note text="Note 3" />
+        {
+          // This maps over all the noteItems and adds the Note from Note.js
+          noteItems.map((element, index) => {
+            return <Note key={index} text={element} />;
+          })
+        }
       </View>
       {/* Notes End */}
 
@@ -40,8 +58,9 @@ export default function App() {
         <TextInput
           style={styles.inputNote}
           placeholder={"Make a note"}
-          // value={note}
-          // When something is entered, set that text to the note 
+          // We set the value to the note because in the handleAddNote() once the note is added, we want to clear the input field
+          value={note}
+          // When something is entered, set that text to the note
           onChangeText={(text) => setNote(text)}
         />
 

@@ -3,11 +3,12 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 const Note = (props) => {
   return (
-    <TouchableOpacity>
-      <View style={styles.noteContainer}>
-        <Text>{props.text}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.noteContainer}>
+      <Text style={styles.noteText}>{props.text}</Text>
+      <TouchableOpacity>
+        <Text style={styles.deleteText}>Delete Note</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -19,7 +20,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 20,
     width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
   },
+  noteText: {
+    maxWidth: "70%",
+  },
+  deleteText: {},
 });
 
 export default Note;
