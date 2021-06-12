@@ -6,7 +6,7 @@ const Note = (props) => {
     <View style={styles.noteContainer}>
       <Text style={styles.noteText}>{props.text}</Text>
       <TouchableOpacity>
-        <Text style={styles.deleteText}>Delete Note</Text>
+        <Text style={styles.deleteText}>Delete</Text>
       </TouchableOpacity>
     </View>
   );
@@ -26,8 +26,13 @@ const styles = StyleSheet.create({
   },
   noteText: {
     maxWidth: "70%",
+    fontSize: 18,
   },
-  deleteText: {},
+  deleteText: {
+    padding: 4,
+    color: "red",
+    fontSize: 16,
+  },
 });
 
 export default Note;
