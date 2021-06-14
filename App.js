@@ -25,7 +25,7 @@ export default function App() {
     // This makes the keyboard go away when note has been added
     // Keyboard.dismiss();
 
-    // console.log(note);
+    console.log(note);
 
     // This takes everything in the noteItems and puts it into an [array] and appends the value of the note to that array
     // It works like: noteItems(array) += note(new note)
@@ -35,6 +35,12 @@ export default function App() {
     // Clear the input field
     setNote(null);
   };
+
+  const handleEditNote = (index) => {
+    let notesCopy = [...noteItems]
+    console.log(notesCopy[0])
+    console.log(notesCopy[1])
+  }
 
   const handleDeleteNote = (index) => {
     // Make a copy array of noteItems
@@ -147,7 +153,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     marginRight: 15,
-    borderRadius: 150
+    borderRadius: 150,
   },
   addButtonText: {
     fontSize: 20,

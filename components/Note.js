@@ -5,10 +5,15 @@ const Note = (props) => {
   return (
     <View style={styles.noteContainer}>
       <Text style={styles.noteText}>{props.text}</Text>
-      {/* props.onDelete is the delete button press handler from App.js */}
-      <TouchableOpacity onPress={props.onDelete}>
-        <Text style={styles.deleteText}>Delete</Text>
-      </TouchableOpacity>
+      <View style={styles.controls}>
+        {/* props.onDelete and props.onEdit is the delete and edit button press handler from App.js */}
+        <TouchableOpacity onPress={props.onEdit}>
+          <Text style={styles.editText}>Edit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.onDelete}>
+          <Text style={styles.deleteText}>Delete</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -26,12 +31,22 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   noteText: {
-    maxWidth: "70%",
+    maxWidth: "66%",
     fontSize: 18,
   },
+  controls: {
+    flexDirection: "row",
+  },
+  editText: {
+    paddingVertical: 4,
+    paddingHorizontal: 6,
+    color: "#0000ff",
+    fontSize: 16,
+  },
   deleteText: {
-    padding: 4,
-    color: "red",
+    paddingVertical: 4,
+    paddingHorizontal: 6,
+    color: "#ff0000",
     fontSize: 16,
   },
 });
