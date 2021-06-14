@@ -21,7 +21,7 @@ export default function App() {
   // This is executed when the add note button is pressed
   const handleAddNote = () => {
     // This makes the keyboard go away when note has been added
-    Keyboard.dismiss();
+    // Keyboard.dismiss();
 
     // console.log(note);
 
