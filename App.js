@@ -25,15 +25,19 @@ export default function App() {
     // This makes the keyboard go away when note has been added
     // Keyboard.dismiss();
 
-    console.log(note);
+    // console.log(note);
 
-    // This takes everything in the noteItems and puts it into an [array] and appends the value of the note to that array
-    // It works like: noteItems(array) += note(new note)
-    // To add the new note to the bottom of the list, use this `setNoteItems([note, ...noteItems]);` Else, use this:
-    setNoteItems([note, ...noteItems]);
+    if (note != null) {
+      // This takes everything in the noteItems and puts it into an [array] and appends the value of the note to that array
+      // It works like: noteItems(array) += note(new note)
+      // To add the new note to the bottom of the list, use this `setNoteItems([note, ...noteItems]);` Else, use this:
+      setNoteItems([note, ...noteItems]);
 
-    // Clear the input field
-    setNote(null);
+      // Clear the input field
+      setNote(null);
+    } else {
+      console.log("Note is null!");
+    }
   };
 
   // const handleEditNote = (index) => {
