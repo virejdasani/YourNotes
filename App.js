@@ -52,7 +52,7 @@ export default function App() {
           // This maps over all the noteItems and adds the Note from Note.js
           noteItems.map((element, index) => {
             return (
-              <Note key={index} text={element} onDelete={handleDeleteNote} />
+              <Note key={index} text={element} onDelete={() => handleDeleteNote(index)} />
             );
           })
         }

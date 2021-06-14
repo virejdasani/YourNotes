@@ -5,6 +5,7 @@ const Note = (props) => {
   return (
     <View style={styles.noteContainer}>
       <Text style={styles.noteText}>{props.text}</Text>
+      {/* props.onDelete is the delete button press handler from App.js */}
       <TouchableOpacity onPress={props.onDelete}>
         <Text style={styles.deleteText}>Delete</Text>
       </TouchableOpacity>
