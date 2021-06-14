@@ -29,7 +29,8 @@ export default function App() {
 
     // This takes everything in the noteItems and puts it into an [array] and appends the value of the note to that array
     // It works like: noteItems(array) += note(new note)
-    setNoteItems([...noteItems, note]);
+    // To add the new note to the bottom of the list, use this `setNoteItems([note, ...noteItems]);` Else, use this:
+    setNoteItems([note, ...noteItems]);
 
     // Clear the input field
     setNote(null);
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     paddingHorizontal: 25,
   },
+  scrollView: {  },
   // This is the title 'Your Notes'
   titleText: {
     paddingTop: 60,
@@ -109,14 +111,16 @@ const styles = StyleSheet.create({
   },
   // This is all the notes
   notesWrapper: {
-    marginTop: 20,
+    marginTop: 10,
+    marginBottom: 200,
   },
   // The note adding view
   addNoteWrapper: {
-    position: "absolute",
-    bottom: 10,
-    padding: 30,
-    width: "100%",
+    // position: "absolute",
+    top: 20,
+    paddingLeft: 10,
+    paddingBottom: 50,
+    width: "80%",
     flexDirection: "row",
   },
   // The input text box to make a note
@@ -132,15 +136,16 @@ const styles = StyleSheet.create({
   // The add button
   addButtonWrapper: {
     backgroundColor: "#fff",
-    height: 45,
-    width: 45,
+    height: 55,
+    width: 55,
     marginLeft: 35,
-    padding: 10,
     borderRadius: 45,
     alignItems: "center",
     justifyContent: "center",
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
-  addButtonText: {},
+  addButtonText: {
+    fontSize: 20,
+  },
 });
