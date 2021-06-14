@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "yourNotes",
+    "name": "Your Notes",
     "slug": "yourNotes",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,9 +17,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.virej.yournotes"
     },
     "android": {
+      "package": "com.virej.yournotes",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
