@@ -9,6 +9,8 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import Note from "./components/Note";
 
@@ -43,22 +45,26 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.titleText}>Your Notes</Text>
-
-      {/* Notes Start */}
-      <View style={styles.notesWrapper}>
-        {
-          // This maps over all the noteItems and adds the Note from Note.js
-          noteItems.map((element, index) => {
-            return (
-              <Note key={index} text={element} onDelete={() => handleDeleteNote(index)} />
-            );
-          })
-        }
-      </View>
-      {/* Notes End */}
-
+      <ScrollView style={styles.scrollView}>
+        {/* Notes Start */}
+        <View style={styles.notesWrapper}>
+          {
+            // This maps over all the noteItems and adds the Note from Note.js
+            noteItems.map((element, index) => {
+              return (
+                <Note
+                  key={index}
+                  text={element}
+                  onDelete={() => handleDeleteNote(index)}
+                />
+              );
+            })
+          }
+        </View>
+        {/* Notes End */}
+      </ScrollView>
       {/* Add Note Start */}
       {/* This view does not get covered when keyboard pops up. The behaviour is taken from the React Native docs */}
       <KeyboardAvoidingView
@@ -83,7 +89,7 @@ export default function App() {
         </TouchableOpacity>
       </KeyboardAvoidingView>
       {/* Add Note End */}
-    </View> // Container
+    </SafeAreaView> // Container
   ); // App
 }
 
@@ -92,11 +98,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E8EAEF",
-    paddingTop: 80,
+    paddingTop: StatusBar.currentHeight,
     paddingHorizontal: 25,
   },
   // This is the title 'Your Notes'
   titleText: {
+    paddingTop: 60,
     fontSize: 35,
     fontWeight: "bold",
   },
@@ -114,7 +121,7 @@ const styles = StyleSheet.create({
   },
   // The input text box to make a note
   inputNote: {
-    width: "80%",
+    width: "90%",
     height: 45,
     backgroundColor: "white",
     padding: 10,
@@ -127,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     height: 45,
     width: 45,
-    marginLeft: 50,
+    marginLeft: 35,
     padding: 10,
     borderRadius: 45,
     alignItems: "center",
