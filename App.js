@@ -48,7 +48,11 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.titleText}>Your Notes</Text>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        style={styles.scrollView}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Notes Start */}
         <View style={styles.notesWrapper}>
           {
@@ -83,10 +87,11 @@ export default function App() {
         />
 
         {/* Add note button */}
-        <TouchableOpacity onPress={() => handleAddNote()}>
-          <View style={styles.addButtonWrapper}>
-            <Text style={styles.addButtonText}>+</Text>
-          </View>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => handleAddNote()}
+        >
+          <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
       {/* Add Note End */}
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     paddingHorizontal: 25,
   },
-  scrollView: {  },
+  scrollView: {},
   // This is the title 'Your Notes'
   titleText: {
     paddingTop: 60,
@@ -116,34 +121,33 @@ const styles = StyleSheet.create({
   },
   // The note adding view
   addNoteWrapper: {
-    // position: "absolute",
     top: 20,
     paddingLeft: 10,
     paddingBottom: 50,
-    width: "80%",
+    // width: "80%",
     flexDirection: "row",
+    justifyContent: "space-between",
   },
   // The input text box to make a note
   inputNote: {
-    width: "90%",
-    height: 45,
-    backgroundColor: "white",
+    width: "70%",
+    height: 50,
+    backgroundColor: "#fff",
     padding: 10,
     borderRadius: 10,
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
   // The add button
-  addButtonWrapper: {
-    backgroundColor: "#fff",
-    height: 55,
-    width: 55,
-    marginLeft: 35,
-    borderRadius: 45,
+  addButton: {
+    position: "relative",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
+    height: 50,
+    width: 50,
+    marginRight: 15,
+    borderRadius: 150
   },
   addButtonText: {
     fontSize: 20,
