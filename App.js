@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   // The note adding view
   addNoteWrapper: {
     position: "absolute",
-    bottom: 80,
+    bottom: 10,
     padding: 30,
     width: "100%",
     flexDirection: "row",
