@@ -7,9 +7,9 @@ const Note = (props) => {
       <Text style={styles.noteText}>{props.text}</Text>
       <View style={styles.controls}>
         {/* props.onDelete and props.onEdit is the delete and edit button press handler from App.js */}
-        <TouchableOpacity onPress={props.onEdit}>
+        {/* <TouchableOpacity onPress={props.onEdit}>
           <Text style={styles.editText}>Edit</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity onPress={props.onDelete}>
           <Text style={styles.deleteText}>Delete</Text>
         </TouchableOpacity>
@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
   controls: {
     flexDirection: "row",
   },
-  editText: {
-    paddingVertical: 4,
-    paddingHorizontal: 6,
-    color: "#0000ff",
-    fontSize: 16,
-  },
+  // editText: {
+  //   paddingVertical: 4,
+  //   paddingHorizontal: 6,
+  //   color: "#0000ff",
+  //   fontSize: 16,
+  // },
   deleteText: {
     paddingVertical: 4,
     paddingHorizontal: 6,

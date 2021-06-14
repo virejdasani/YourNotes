@@ -36,11 +36,11 @@ export default function App() {
     setNote(null);
   };
 
-  const handleEditNote = (index) => {
-    let notesCopy = [...noteItems]
-    console.log(notesCopy[0])
-    console.log(notesCopy[1])
-  }
+  // const handleEditNote = (index) => {
+  //   let notesCopy = [...noteItems]
+  //   console.log(notesCopy[0])
+  //   console.log(notesCopy[1])
+  // }
 
   const handleDeleteNote = (index) => {
     // Make a copy array of noteItems
